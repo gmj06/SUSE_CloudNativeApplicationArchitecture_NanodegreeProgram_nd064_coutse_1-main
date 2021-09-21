@@ -2,7 +2,7 @@ import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
-import logging
+import logging, os, sys
 
 # Define the Flask application
 app = Flask(__name__)
@@ -48,7 +48,7 @@ def metrics():
         response=json.dumps({
             "status":"success", "code": 0, "data": {
                 "db_connection_count":app.config['DB_CONNECTION_COUNT'],
-                "post_counnt": len(posts)
+                "post_count": len(posts)
             }
         }),
         status=200,
@@ -66,6 +66,8 @@ def index():
     connection = get_db_connection()
     posts = connection.execute('SELECT * FROM posts').fetchall()
     connection.close()
+
+    app.logger.info('TechTrends started successfully!')
     return render_template('index.html', posts=posts)
 
 # Define how each individual article is rendered 
@@ -74,10 +76,10 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.info('Article does not exists!')
+        app.logger.error('Article "{}" not found'.format(post["title"]))
         return render_template('404.html'), 404
     else:
-        app.logger.info('Article "' + post.title + '" retrieved!')
+        app.logger.info('Article "{}" is retrieved!'.format(post["title"]))
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -102,11 +104,45 @@ def create():
             connection.commit()
             connection.close()
 
-            app.logger.info('Article "' + title + '" created succesfully!"')
+            app.logger.info('Article "{}" created succesfully!'.format(title))
             return redirect(url_for('index'))
 
     return render_template('create.html')
 
 # start the application on port 3111
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port='3111')
+    # Remove all handlers associated with the root logger object.
+    for handler in logging.root.handlers[:]:
+        logging.root.removeHandler(handler)
+
+    #Set up logger
+    #logger = logging.getLogger('techtrends_log')
+    #Set loglevel to an Environment Variable
+    loglevel = os.getenv("TECHTRENDS_LOGLEVEL", "DEBUG").upper()
+
+    #Set logging output type dynamically depending on loglevel condition
+    loglevel = (
+        getattr(logging, loglevel)
+        if loglevel in ["CRITICAL", "DEBUG", "ERROR", "INFO", "WARNING"]
+        else logging.DEBUG
+        )
+
+    # Set logger to handle STDOUT and STDERR
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setLevel(loglevel)
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    stderr_handler.setLevel(logging.ERROR)
+
+    # logger.addHandler(stdout_handler)
+    # logger.addHandler(stderr_handler)
+
+    handlers = [stdout_handler, stderr_handler]
+
+    # format output
+    format_output = '%(name)s - %(asctime)s - %(levelname)s - %(message)s'
+
+    logging.basicConfig(level=logging.DEBUG,
+        format=format_output,  datefmt='%m/%d/%Y %I:%M:%S %p',  handlers=handlers
+    )
+   
+    app.run(host='0.0.0.0', port='3111')
