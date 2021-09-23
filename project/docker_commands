@@ -14,53 +14,50 @@ docker run -d -p 7111:3111 techtrends
 
 # TODO: insert the docker logs command
 
-docker logs 24293afeb0ce
+docker logs 2ea4c2d4e042
 
 ## Logs from the container running the TechTrends application
 
 # TODO: paste logs from the Docker container
 
 - Serving Flask app "app" (lazy loading)
+
 - Environment: production
-  WARNING: This is a development server. Do not use it in a production deployment.
-  Use a production WSGI server instead.
+
+WARNING: This is a development server. Do not use it in a production deployment.
+
+Use a production WSGI server instead.
+
 - Debug mode: off
-  werkzeug - 09/21/2021 03:24:29 AM - INFO - \* Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-  app - 09/21/2021 03:24:47 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:24:47 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:24:47] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:24:56 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:24:56 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:24:56] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:24:58 AM - INFO - HealthCheck request successful!
-  werkzeug - 09/21/2021 03:24:58 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:24:58] "GET /healthz HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:05 AM - INFO - HealthCheck request successful!
-  werkzeug - 09/21/2021 03:25:05 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:05] "GET /healthz HTTP/1.1" 200 -
-  werkzeug - 09/21/2021 03:25:05 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:05] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
-  werkzeug - 09/21/2021 03:25:05 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:05] "GET /apple-touch-icon.png HTTP/1.1" 404 -
-  app - 09/21/2021 03:25:06 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:25:06 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:06] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:07 AM - INFO - Metrics request successful!
-  werkzeug - 09/21/2021 03:25:07 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:07] "GET /metrics HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:13 AM - INFO - Metrics request successful!
-  werkzeug - 09/21/2021 03:25:13 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:13] "GET /metrics HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:15 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:25:15 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:15] "GET / HTTP/1.1" 200 -
-  werkzeug - 09/21/2021 03:25:15 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:15] "GET /create HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:18 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:25:18 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:18] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:20 AM - INFO - The "About Us" page is retrieved!
-  werkzeug - 09/21/2021 03:25:20 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:20] "GET /about HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:25 AM - INFO - The "About Us" page is retrieved!
-  werkzeug - 09/21/2021 03:25:25 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:25] "GET /about HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:26 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:25:26 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:26] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:30 AM - INFO - Article "Kubernetes v1.20 Release Notes" is retrieved!
-  werkzeug - 09/21/2021 03:25:30 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:30] "GET /3 HTTP/1.1" 200 -
-  app - 09/21/2021 03:25:37 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:25:37 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:37] "GET / HTTP/1.1" 200 -
-  werkzeug - 09/21/2021 03:25:38 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:25:38] "GET /create HTTP/1.1" 200 -
-  app - 09/21/2021 03:26:46 AM - INFO - Article "Containerization" created succesfully!
-  werkzeug - 09/21/2021 03:26:46 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:26:46] "POST /create HTTP/1.1" 302 -
-  app - 09/21/2021 03:26:46 AM - INFO - TechTrends started successfully!
-  werkzeug - 09/21/2021 03:26:46 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:26:46] "GET / HTTP/1.1" 200 -
-  app - 09/21/2021 03:26:51 AM - INFO - Article "Containerization" is retrieved!
-  werkzeug - 09/21/2021 03:26:51 AM - INFO - 172.17.0.1 - - [21/Sep/2021 03:26:51] "GET /7 HTTP/1.1" 200 -
+
+INFO:werkzeug - - 09/22/2021 05:35:42 AM \* Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+
+INFO:app - - 09/22/2021 05:40:09 AM TechTrends started successfully!
+
+INFO:werkzeug - - 09/22/2021 05:40:09 AM 172.17.0.1 - - [22/Sep/2021 05:40:09] "GET / HTTP/1.1" 200 -
+
+INFO:app - - 09/22/2021 05:40:15 AM The "About Us" page is retrieved!
+
+INFO:werkzeug - - 09/22/2021 05:40:15 AM 172.17.0.1 - - [22/Sep/2021 05:40:15] "GET /about HTTP/1.1" 200 -
+
+INFO:app - - 09/22/2021 05:40:22 AM Article "CNCF Cloud Native Definition v1.0" retrieved!
+
+INFO:werkzeug - - 09/22/2021 05:40:22 AM 172.17.0.1 - - [22/Sep/2021 05:40:22] "GET /5 HTTP/1.1" 200 -
+
+INFO:werkzeug - - 09/22/2021 05:40:30 AM 172.17.0.1 - - [22/Sep/2021 05:40:30] "GET /create HTTP/1.1" 200 -
+
+INFO:app - - 09/22/2021 05:40:45 AM Article "testing logs" created succesfully!
+
+INFO:werkzeug - - 09/22/2021 05:40:45 AM 172.17.0.1 - - [22/Sep/2021 05:40:45] "POST /create HTTP/1.1" 302 -
+
+INFO:app - - 09/22/2021 05:40:45 AM TechTrends started successfully!
+
+INFO:werkzeug - - 09/22/2021 05:40:45 AM 172.17.0.1 - - [22/Sep/2021 05:40:45] "GET / HTTP/1.1" 200 -
+
+INFO:app - - 09/22/2021 05:40:58 AM HealthCheck request successful!
+
+INFO:werkzeug - - 09/22/2021 05:40:58 AM 172.17.0.1 - - [22/Sep/2021 05:40:58] "GET /healthz HTTP/1.1" 200 -
+
+INFO:app - - 09/22/2021 05:41:05 AM Metrics request successful!
+
+INFO:werkzeug - - 09/22/2021 05:41:05 AM 172.17.0.1 - - [22/Sep/2021 05:41:05] "GET /metrics HTTP/1.1" 200 -

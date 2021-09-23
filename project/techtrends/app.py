@@ -76,10 +76,10 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.error('Article "{}" not found'.format(post["title"]))
+        app.logger.error('Article {} not found'.format(post_id))
         return render_template('404.html'), 404
     else:
-        app.logger.info('Article "{}" is retrieved!'.format(post["title"]))
+        app.logger.info('Article "{}" retrieved!'.format(post["title"]))
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         logging.root.removeHandler(handler)
 
     #Set up logger
-    #logger = logging.getLogger('techtrends_log')
+    logger = logging.getLogger(__name__)
     #Set loglevel to an Environment Variable
     loglevel = os.getenv("TECHTRENDS_LOGLEVEL", "DEBUG").upper()
 
@@ -133,16 +133,16 @@ if __name__ == "__main__":
     stderr_handler = logging.StreamHandler(sys.stderr)
     stderr_handler.setLevel(logging.ERROR)
 
-    # logger.addHandler(stdout_handler)
-    # logger.addHandler(stderr_handler)
-
+    logger.addHandler(stdout_handler)
+    logger.addHandler(stderr_handler)
     handlers = [stdout_handler, stderr_handler]
 
     # format output
-    format_output = '%(name)s - %(asctime)s - %(levelname)s - %(message)s'
+    log_format = '%(levelname)s:%(name)s - - %(asctime)s %(message)s'
 
     logging.basicConfig(level=logging.DEBUG,
-        format=format_output,  datefmt='%m/%d/%Y %I:%M:%S %p',  handlers=handlers
+        format=log_format,  datefmt='%m/%d/%Y %I:%M:%S %p',  handlers=handlers
     )
+   
    
     app.run(host='0.0.0.0', port='3111')
